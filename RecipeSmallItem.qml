@@ -3,9 +3,12 @@ import QtQuick 2.5
 
 
 Item {
+    id:smallRecipe
     width:recipesListView.width
     height:40
     anchors.horizontalCenter: parent.horizontalCenter
+
+    signal recipeClicked(string title, string instructions, string notes)
 
     Row {
         id: row1
@@ -30,6 +33,16 @@ Item {
             text: modelData.rating
             font.bold: true
             anchors.verticalCenter: parent.verticalCenter
+        }
+
+    }
+
+    MouseArea {
+        id: mouseArea1
+        anchors.fill: parent
+        onClicked: {
+            console.log(modelData.title);
+            smallRecipe.recipeClicked(modelData.title, modelData.instructions, modelData.notes)
         }
     }
 }

@@ -19,13 +19,47 @@ ApplicationWindow {
                 text: qsTr("Exit")
                 onTriggered: Qt.quit();
             }
+            MenuItem {
+                text: qsTr("Back")
+                onTriggered: if (stackView.depth > 1) {
+                                 stackView.pop()
+                             }
+            }
         }
     }
 
-    MainForm {
-        anchors.fill: parent
+    RecipeFullItem {
+        id:recipeFull
+        visible: false
 
     }
+
+    StackView {
+        id: stackView
+        anchors.fill: parent
+        // Implements back key navigation
+        focus: true
+        Keys.onReleased: if (event.key === Qt.Key_Back && stackView.depth > 1) {
+                             stackView.pop();
+                             event.accepted = true;
+                         }
+        initialItem: MainForm {
+            anchors.fill: parent
+
+            onRecipeClicked: {
+                recipeFull.setRecipeData(title, "", instructions)
+                //recipeFull.ingredients = ingredients
+                stackView.push(recipeFull)
+            }
+        }
+    }
+
+
+
+    /*MainForm {
+        anchors.fill: parent
+
+    }*/
 
     MessageDialog {
         id: messageDialog

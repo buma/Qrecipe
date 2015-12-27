@@ -3,9 +3,20 @@ import QtQuick.Extras 1.4
 import QtQuick.Controls 1.3
 
 Item {
-    id: item1
-    width: 1024
-    height: 600
+    id: recipeFullItem
+    //width: 1024
+    //height: 600
+    //property alias title:title
+    //property alias ingredients: ingredients
+    property string title
+    property string ingredients
+    property string instructions
+
+    function setRecipeData(title, ingredients, instructions) {
+        recipeFullItem.title = title;
+        recipeFullItem.ingredients = ingredients
+        recipeFullItem.instructions = instructions;
+    }
 
     Column {
         id: ingredients_column
@@ -63,7 +74,7 @@ Item {
 
             Text {
                 id: ingredients
-                text: qsTr("Text")
+                text: recipeFullItem.ingredients
                 anchors.fill: parent
                 font.pixelSize: 12
             }
@@ -97,7 +108,7 @@ Item {
 
             Text {
                 id: title
-                text: qsTr("title")
+                text: recipeFullItem.title
                 anchors.horizontalCenterOffset: -56
                 font.family: "Verdana"
                 style: Text.Raised
@@ -111,7 +122,7 @@ Item {
 
         Text {
             id: instructions
-            text: qsTr("Text")
+            text: recipeFullItem.instructions
             anchors.top: row1.bottom
             anchors.right: parent.right
             anchors.bottom: parent.bottom
