@@ -3,5 +3,7 @@
         <file>main.qml</file>
         <file>MainForm.ui.qml</file>
         <file>i18n/qrecipes_sl.qm</file>
+        <file>RecipesList.qml</file>
+        <file>RecipeSmallItem.qml</file>
     </qresource>
 </RCC>

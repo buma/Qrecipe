@@ -1,8 +1,11 @@
 #include <QApplication>
+#include <QtQml>
 #include <QQmlApplicationEngine>
 #include <QTranslator>
 #include <QLibraryInfo>
 #include <QDebug>
+
+#include "sqlrecipemodel.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -20,6 +23,8 @@ int main(int argc, char *argv[])
     myappTranslator.load("qrecipes_" + systemLocale.name(),
                          ":/i18n/");
     app.installTranslator(&myappTranslator);
+
+    qmlRegisterType<SqlRecipeModel>("si.mabu.recipe", 1, 0, "SqlRecipeModel");
 
     /*
     qDebug() << "Path: " << QLibraryInfo::location(QLibraryInfo::TranslationsPath);

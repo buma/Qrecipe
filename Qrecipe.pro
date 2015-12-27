@@ -1,8 +1,12 @@
 TEMPLATE = app
 
-QT += qml quick widgets
+QT += qml quick widgets sql
 
-SOURCES += main.cpp
+!contains(sql-drivers, sqlite): QTPLUGIN += qsqlite
+
+SOURCES += main.cpp \
+    recipe.cpp \
+    sqlrecipemodel.cpp
 
 RESOURCES += qml.qrc
 
@@ -11,8 +15,7 @@ TRANSLATIONS = i18n/qrecipes_sl.ts
 #To use translations lrelease i18n/*.ts
 #Translations *qm files need to be in the same folder as executable
 lupdate_only {
-    SOURCES = main.qml \
-              MainForm.ui.qml
+    SOURCES = *.qml
 }
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -20,4 +23,8 @@ QML_IMPORT_PATH =
 
 # Default rules for deployment.
 include(deployment.pri)
+
+HEADERS += \
+    recipe.hpp \
+    sqlrecipemodel.hpp
 
