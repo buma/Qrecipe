@@ -1,11 +1,12 @@
 import QtQuick 2.0
 import QtQuick.Extras 1.4
 import QtQuick.Controls 1.3
+import QtQuick.Layouts 1.2
 
 Item {
     id: recipeFullItem
-    //width: 1024
-    //height: 600
+    width: 1024
+    height: 600
     //property alias title:title
     //property alias ingredients: ingredients
     property string title
@@ -18,117 +19,100 @@ Item {
         recipeFullItem.instructions = instructions;
     }
 
-    Column {
-        id: ingredients_column
-        width: 200
-        spacing: 10
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 5
-        anchors.top: parent.top
-        anchors.topMargin: 0
-        anchors.left: parent.left
-        anchors.leftMargin: 5
 
-        Text {
-            id: text1
-            text: qsTr("Ingredients")
-            font.bold: true
-            anchors.top: parent.top
-            anchors.topMargin: 10
-            anchors.horizontalCenter: parent.horizontalCenter
-            font.pixelSize: 12
-        }
+    SplitView {
+        id: splitView1
+        anchors.fill: parent
 
-        Row {
-            id: amount
-            width: 200
-            height: 30
-            spacing: 19
-            anchors.top: text1.bottom
-            anchors.topMargin: 10
+        ColumnLayout {
+            id: ingredients_column
+            spacing: 10
+            Layout.minimumWidth: 200
+            Layout.minimumHeight: 20
 
-            Label {
-                id: label1
-                y: 8
-                text: qsTr("Yields:")
-                anchors.left: parent.left
-                anchors.leftMargin: 10
-            }
-
-            SpinBox {
-                id: sb_amount
-                anchors.left: label1.right
-                anchors.leftMargin: 20
-                suffix: "servings"
-            }
-
-        }
-
-        Row {
-            id: ingredients_row
-            width: 200
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 0
-            anchors.top: amount.bottom
-            anchors.topMargin: 10
 
             Text {
-                id: ingredients
-                text: recipeFullItem.ingredients
-                anchors.fill: parent
+                id: text1
+                text: qsTr("Ingredients")
+                font.bold: true
+                Layout.alignment: Qt.AlignVCenter
+                Layout.fillWidth: true
                 font.pixelSize: 12
             }
+
+            RowLayout {
+                id: amount
+                Layout.minimumHeight: 30
+                Layout.fillWidth: true
+                spacing: 10
+
+                Label {
+                    id: label1
+                    text: qsTr("Yields:")
+                }
+
+                SpinBox {
+                    id: sb_amount
+                    suffix: "servings"
+                }
+
+            }
+
+
+                Text {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    id: ingredients
+                    text: recipeFullItem.ingredients
+                    font.pixelSize: 12
+                }
+
         }
-    }
+
+        ColumnLayout {
+            id: rest
+            Layout.fillWidth: true
+            Layout.fillHeight: true
 
 
-    Column {
-        id: rest
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 5
-        anchors.top: parent.top
-        anchors.topMargin: 0
-        anchors.left: ingredients_column.right
-        anchors.leftMargin: 10
-        anchors.right: parent.right
-        anchors.rightMargin: 5
+            RowLayout {
+                id: row1
+                Layout.maximumHeight: 100
+                Layout.fillWidth: true
 
-        Row {
-            id: row1
-            height: 100
-            anchors.right: parent.right
-            anchors.left: parent.left
+                Image {
+                    id: image1
+                    width: height
+                    clip: false
+                    Layout.maximumWidth: 100
+                    Layout.maximumHeight: 100
 
-            Image {
-                id: image1
-                width: 100
-                height: 100
-                source: "qrc:/qtquickplugin/images/template_image.png"
+                }
+
+                Text {
+                    id: title
+                    text: recipeFullItem.title
+
+                    font.family: "Verdana"
+                    style: Text.Raised
+                    font.bold: true
+
+                    font.pixelSize: 20
+                    Layout.minimumHeight: 20
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignHCenter
+                }
             }
 
             Text {
-                id: title
-                text: recipeFullItem.title
-                anchors.horizontalCenterOffset: -56
-                font.family: "Verdana"
-                style: Text.Raised
-                font.bold: true
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.topMargin: 24
-                font.pixelSize: 20
-            }
-        }
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                id: instructions
+                text:recipeFullItem.instructions
+                wrapMode: Text.WordWrap
 
-        Text {
-            id: instructions
-            text: recipeFullItem.instructions
-            anchors.top: row1.bottom
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.topMargin: -100
-            font.pixelSize: 12
+                font.pixelSize: 12
+            }
         }
     }
 
