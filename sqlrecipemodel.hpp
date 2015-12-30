@@ -20,6 +20,8 @@ public:
 
 private:
     static void createConection();
+    static const QString queryAllRecipes;
+    static const QString queryIngredientsForRecipe;
 };
 
 #endif // SQLRECIPEMODEL_HPP

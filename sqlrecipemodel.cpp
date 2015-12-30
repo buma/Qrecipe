@@ -11,7 +11,7 @@ SqlRecipeModel::SqlRecipeModel()
 
 QList<QObject *> SqlRecipeModel::allRecipes()
 {
-    const QString queryAllRecipes = QString::fromLatin1("SELECT * FROM recipe");
+
     QSqlQuery query(queryAllRecipes);
     if (!query.exec()) {
         qFatal("Query failed");
@@ -32,10 +32,6 @@ QList<QObject *> SqlRecipeModel::allRecipes()
 
 QList<Ingredient *> SqlRecipeModel::getIngredients(int recipeId)
 {
-    const QString queryIngredientsForRecipe = QString::fromLatin1(
-                "SELECT * FROM ingredients WHERE recipe_id == '%1'"
-                " AND deleted == 0"
-                " ORDER BY position");
     QSqlQuery query(queryIngredientsForRecipe.arg(recipeId));
     if (!query.exec()) {
         qFatal("Query for ingredients failed");
@@ -60,4 +56,10 @@ void SqlRecipeModel::createConection()
     }
 
 }
+
+const QString SqlRecipeModel::queryAllRecipes = QStringLiteral("SELECT * FROM recipe");
+const QString SqlRecipeModel::queryIngredientsForRecipe = QStringLiteral(
+            "SELECT * FROM ingredients WHERE recipe_id == '%1'"
+            " AND deleted == 0"
+            " ORDER BY position");
 
