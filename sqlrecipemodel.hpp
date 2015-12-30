@@ -6,6 +6,7 @@
 #include <QSqlTableModel>
 
 #include "recipe.hpp"
+#include "ingredient.hpp"
 
 
 class SqlRecipeModel : public QSqlQueryModel
@@ -15,6 +16,7 @@ public:
     SqlRecipeModel();
 
     Q_INVOKABLE QList<QObject*> allRecipes();
+    Q_INVOKABLE QList<Ingredient*> getIngredients(int recipeId);
 
 private:
     static void createConection();

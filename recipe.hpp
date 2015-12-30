@@ -12,6 +12,7 @@ class Recipe : public QObject
     Q_PROPERTY(QString instructions READ instructions WRITE setInstructions NOTIFY instructionsChanged)
     Q_PROPERTY(QString notes READ notes WRITE setNotes NOTIFY notesChanged)
     Q_PROPERTY(quint8 rating READ rating WRITE setRating NOTIFY ratingChanged)
+    Q_PROPERTY(quint16 id READ id WRITE setId NOTIFY idChanged)
 public:
     explicit Recipe(QObject *parent = 0);
 
@@ -33,6 +34,11 @@ public:
     quint8 rating() const
     {
         return m_rating;
+    }
+
+    quint16 id() const
+    {
+        return m_id;
     }
 
 public slots:
@@ -72,6 +78,15 @@ public slots:
         emit ratingChanged(rating);
     }
 
+    void setId(quint16 id)
+    {
+        if (m_id == id)
+            return;
+
+        m_id = id;
+        emit idChanged(id);
+    }
+
 signals:
 
     void notesChanged(QString notes);
@@ -82,12 +97,15 @@ signals:
 
     void ratingChanged(quint8 rating);
 
+    void idChanged(quint16 id);
+
 private:
 
     QString m_notes;
     QString m_instructions;
     QString m_title;
     quint8 m_rating;
+    quint16 m_id;
 };
 
 #endif // RECIPE_HPP
