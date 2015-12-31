@@ -40,7 +40,8 @@ QList<QObject *> SqlRecipeModel::getIngredients(int recipeId)
     QList<QObject*> ingredients;
     while(query.next()) {
         Ingredient *ingredient = new Ingredient(this, query.value("unit").toString(),
-                                                query.value("amount").toFloat(), query.value("item").toString());
+                                                query.value("amount").toFloat(), query.value("item").toString(),
+                                                query.value("inggroup").toString());
         ingredients.append(ingredient);
     }
     return ingredients;
