@@ -13,8 +13,10 @@ class Recipe : public QObject
     Q_PROPERTY(QString notes READ notes WRITE setNotes NOTIFY notesChanged)
     Q_PROPERTY(quint8 rating READ rating WRITE setRating NOTIFY ratingChanged)
     Q_PROPERTY(quint16 id READ id WRITE setId NOTIFY idChanged)
+    Q_PROPERTY(float yields READ yields NOTIFY yieldsChanged)
+    Q_PROPERTY(QString yieldUnit READ yieldUnit NOTIFY yieldUnitChanged)
 public:
-    explicit Recipe(QObject *parent = 0);
+    explicit Recipe(QObject *parent, float yields, QString yieldUnit);
 
     QString notes() const
     {
@@ -39,6 +41,16 @@ public:
     quint16 id() const
     {
         return m_id;
+    }
+
+    float yields() const
+    {
+        return m_yields;
+    }
+
+    QString yieldUnit() const
+    {
+        return m_yieldUnit;
     }
 
 public slots:
@@ -99,6 +111,10 @@ signals:
 
     void idChanged(quint16 id);
 
+    void yieldsChanged(float yields);
+
+    void yieldUnitChanged(QString yieldUnit);
+
 private:
 
     QString m_notes;
@@ -106,6 +122,8 @@ private:
     QString m_title;
     quint8 m_rating;
     quint16 m_id;
+    float m_yields;
+    QString m_yieldUnit;
 };
 
 #endif // RECIPE_HPP

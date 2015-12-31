@@ -48,8 +48,8 @@ Item {
 
                 SpinBox {
                     id: sb_amount
-                    value: 1
-                    suffix: "servings"
+                    value: modelData.yields
+                    suffix: modelData.yieldUnit
                 }
 
             }
@@ -57,6 +57,7 @@ Item {
             ListView {
                 id:ingrediendsListView
                 property real servings: sb_amount.value
+                property real recipeServings: modelData.yields
                 //model:recipeFullItem.ListView.view.model.getIngredients(1)
                 model:recipeModel.getIngredients(modelData.id)
                 Layout.fillHeight: true

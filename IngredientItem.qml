@@ -12,6 +12,7 @@ Item {
             console.log(modelData.group, modelData.ingredient)
         }
         //console.log("servings", ingrediendsListView.servings)
+        //console.log(ingrediendsListView.servings/ingrediendsListView.recipeServings)
     }
 
     RowLayout {
@@ -19,7 +20,7 @@ Item {
 
         Text{
             id: amountText
-            text: modelData.amount * ingrediendsListView.servings
+            text: ingrediendsListView.servings===0? modelData.amount:modelData.amount * (ingrediendsListView.servings/ingrediendsListView.recipeServings)
             visible: modelData.amount > 0
         }
         

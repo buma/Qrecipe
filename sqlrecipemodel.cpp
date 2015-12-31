@@ -18,7 +18,7 @@ QList<QObject *> SqlRecipeModel::allRecipes()
     }
     QList<QObject*> recipes;
     while(query.next()) {
-        Recipe *recipe = new Recipe(this);
+        Recipe *recipe = new Recipe(this, query.value("yields").toFloat(), query.value("yield_unit").toString());
         recipe->setId(query.value("id").toInt());
         recipe->setTitle(query.value("title").toString());
         recipe->setRating(query.value("rating").toUInt());
