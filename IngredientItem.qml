@@ -6,16 +6,20 @@ Item {
     width:parent.width
     height:20
 
-    /*Component.onCompleted:  {
-        console.log("data:", modelData)
-    }*/
+    Component.onCompleted:  {
+        //console.log("data:", modelData)
+        if (modelData.group != "") {
+            console.log(modelData.group, modelData.ingredient)
+        }
+        //console.log("servings", ingrediendsListView.servings)
+    }
 
     RowLayout {
         id: rowLayout1
 
         Text{
             id: amountText
-            text: modelData.amount
+            text: modelData.amount * ingrediendsListView.servings
             visible: modelData.amount > 0
         }
         

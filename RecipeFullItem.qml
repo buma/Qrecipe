@@ -56,6 +56,7 @@ Item {
 
             ListView {
                 id:ingrediendsListView
+                property real servings: sb_amount.value
                 //model:recipeFullItem.ListView.view.model.getIngredients(1)
                 model:recipeModel.getIngredients(modelData.id)
                 Layout.fillHeight: true
