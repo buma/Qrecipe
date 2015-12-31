@@ -16,6 +16,7 @@ Item {
         Text{
             id: amountText
             text: modelData.amount
+            visible: modelData.amount > 0
         }
         
         Text {
