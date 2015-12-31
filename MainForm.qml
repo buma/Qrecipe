@@ -15,11 +15,19 @@ Item {
         anchors.fill: parent
         anchors.margins: 10
         model:recipeModel.allRecipes()
-        delegate: RecipeSmallItem {
-        onRecipeClicked:
-            mainForm.recipeClicked(title, instructions, notes)
+        delegate: Component {
+            Loader {
+                id:delegateLoader
+                //source: "RecipeSmallItem.qml"
+                source: "RecipeFullItem.qml"
+            }
         }
+
         spacing: 10
+    }
+    onRecipeClicked: {
+        console.log("mainForm")
+        //mainForm.recipeClicked(title, instructions, notes)
     }
 
     SqlRecipeModel {

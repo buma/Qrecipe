@@ -28,12 +28,6 @@ ApplicationWindow {
         }
     }
 
-    RecipeFullItem {
-        id:recipeFull
-        visible: false
-
-    }
-
     StackView {
         id: stackView
         anchors.fill: parent
@@ -49,17 +43,12 @@ ApplicationWindow {
             onRecipeClicked: {
                 recipeFull.setRecipeData(title, "", instructions)
                 //recipeFull.ingredients = ingredients
+                console.log("main")
                 stackView.push(recipeFull)
             }
         }
     }
 
-
-
-    /*MainForm {
-        anchors.fill: parent
-
-    }*/
 
     MessageDialog {
         id: messageDialog

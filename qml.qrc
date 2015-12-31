@@ -6,5 +6,6 @@
         <file>RecipesList.qml</file>
         <file>RecipeSmallItem.qml</file>
         <file>RecipeFullItem.qml</file>
+        <file>IngredientItem.qml</file>
     </qresource>
 </RCC>

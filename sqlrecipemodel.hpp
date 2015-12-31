@@ -16,7 +16,7 @@ public:
     SqlRecipeModel();
 
     Q_INVOKABLE QList<QObject*> allRecipes();
-    Q_INVOKABLE QList<Ingredient*> getIngredients(int recipeId);
+    Q_INVOKABLE QList<QObject*> getIngredients(int recipeId);
 
 private:
     static void createConection();

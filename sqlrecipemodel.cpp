@@ -30,14 +30,14 @@ QList<QObject *> SqlRecipeModel::allRecipes()
     return recipes;
 }
 
-QList<Ingredient *> SqlRecipeModel::getIngredients(int recipeId)
+QList<QObject *> SqlRecipeModel::getIngredients(int recipeId)
 {
     QSqlQuery query(queryIngredientsForRecipe.arg(recipeId));
     if (!query.exec()) {
         qFatal("Query for ingredients failed");
     }
 
-    QList<Ingredient*> ingredients;
+    QList<QObject*> ingredients;
     while(query.next()) {
         Ingredient *ingredient = new Ingredient(this, query.value("unit").toString(),
                                                 query.value("amount").toFloat(), query.value("item").toString());

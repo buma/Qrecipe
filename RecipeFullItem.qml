@@ -2,23 +2,18 @@ import QtQuick 2.0
 import QtQuick.Extras 1.4
 import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.2
+import si.mabu.recipe 1.0
 
 Item {
     id: recipeFullItem
     width: 1024
     height: 600
-    //property alias title:title
-    //property alias ingredients: ingredients
-    property string title
-    property string ingredients
-    property string instructions
 
-    function setRecipeData(title, ingredients, instructions) {
-        recipeFullItem.title = title;
-        recipeFullItem.ingredients = ingredients
-        recipeFullItem.instructions = instructions;
+
+    Component.onCompleted:  {
+        //console.log("data:", recipeFullItem.ListView.view.model)
+        //console.log(recipeModel.getIngredients(modelData.id))
     }
-
 
     SplitView {
         id: splitView1
@@ -58,14 +53,23 @@ Item {
 
             }
 
+            ListView {
+                id:ingrediendsListView
+                //model:recipeFullItem.ListView.view.model.getIngredients(1)
+                model:recipeModel.getIngredients(modelData.id)
+                Layout.fillHeight: true
+                Layout.fillWidth: true
 
-                Text {
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    id: ingredients
-                    text: recipeFullItem.ingredients
-                    font.pixelSize: 12
+                delegate:
+                    Component {
+                    Loader {
+                        source: "IngredientItem.qml"
+                    }
                 }
+
+
+
+        }
 
         }
 
@@ -90,8 +94,8 @@ Item {
                 }
 
                 Text {
-                    id: title
-                    text: recipeFullItem.title
+                    id: titleText
+                    text: modelData.title
 
                     font.family: "Verdana"
                     style: Text.Raised
@@ -108,7 +112,7 @@ Item {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 id: instructions
-                text:recipeFullItem.instructions
+                text:modelData.instructions
                 wrapMode: Text.WordWrap
 
                 font.pixelSize: 12
@@ -119,4 +123,3 @@ Item {
 
 
 }
-

@@ -30,3 +30,4 @@ HEADERS += \
     sqlrecipemodel.hpp \
     ingredient.hpp
 
+
