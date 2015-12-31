@@ -67,6 +67,20 @@ Item {
                         source: "IngredientItem.qml"
                     }
                 }
+                section {
+                    property: "modelData.group"
+                    criteria: ViewSection.FullString
+                    delegate: Rectangle {
+                                //color: "#b0dfb0"
+                                width: parent.width
+                                height: childrenRect.height + 4
+                                Text { anchors.horizontalCenter: parent.horizontalCenter
+                                    font.pixelSize: 16
+                                    font.bold: true
+                                    text: section
+                                }
+                            }
+                }
 
 
 
