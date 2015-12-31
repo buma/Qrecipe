@@ -48,6 +48,7 @@ Item {
 
                 SpinBox {
                     id: sb_amount
+                    value: 1
                     suffix: "servings"
                 }
 
