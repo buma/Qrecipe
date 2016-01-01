@@ -7,5 +7,10 @@
         <file>RecipeSmallItem.qml</file>
         <file>RecipeFullItem.qml</file>
         <file>IngredientItem.qml</file>
+        <file>img/gold_star.png</file>
+        <file>img/half_gold_star.png</file>
+        <file>img/no_star.png</file>
+        <file>Star.qml</file>
+        <file>RatingIndicator.qml</file>
     </qresource>
 </RCC>

@@ -28,11 +28,9 @@ Item {
         }
 
         spacing: 10
-        Text {
-            id: text1
-            text: modelData.rating
-            font.bold: true
+        RatingIndicator {
             anchors.verticalCenter: parent.verticalCenter
+            indicator_rating: modelData.rating
         }
 
     }

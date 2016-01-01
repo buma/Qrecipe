@@ -11,7 +11,7 @@ class Recipe : public QObject
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
     Q_PROPERTY(QString instructions READ instructions NOTIFY instructionsChanged)
     Q_PROPERTY(QString notes READ notes NOTIFY notesChanged)
-    Q_PROPERTY(quint8 rating READ rating NOTIFY ratingChanged)
+    Q_PROPERTY(float rating READ rating NOTIFY ratingChanged)
     Q_PROPERTY(quint16 id READ id NOTIFY idChanged)
     Q_PROPERTY(float yields READ yields NOTIFY yieldsChanged)
     Q_PROPERTY(QString yieldUnit READ yieldUnit NOTIFY yieldUnitChanged)
@@ -33,7 +33,7 @@ public:
         return m_title;
     }
 
-    quint8 rating() const
+    float rating() const
     {
         return m_rating;
     }
@@ -61,7 +61,7 @@ signals:
 
     void titleChanged(QString title);
 
-    void ratingChanged(quint8 rating);
+    void ratingChanged(float rating);
 
     void idChanged(quint16 id);
 
@@ -74,7 +74,7 @@ private:
     QString m_notes;
     QString m_instructions;
     QString m_title;
-    quint8 m_rating;
+    float m_rating;
     quint16 m_id;
     float m_yields;
     QString m_yieldUnit;
