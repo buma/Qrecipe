@@ -58,7 +58,7 @@ void SqlRecipeModel::createConection()
 
 }
 
-const QString SqlRecipeModel::queryAllRecipes = QStringLiteral("SELECT * FROM recipe");
+const QString SqlRecipeModel::queryAllRecipes = QStringLiteral("SELECT * FROM recipe WHERE deleted == 0");
 const QString SqlRecipeModel::queryIngredientsForRecipe = QStringLiteral(
             "SELECT * FROM ingredients WHERE recipe_id == '%1'"
             " AND deleted == 0"
