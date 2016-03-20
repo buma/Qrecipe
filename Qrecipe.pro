@@ -30,4 +30,9 @@ HEADERS += \
     sqlrecipemodel.hpp \
     ingredient.hpp
 
-
+DISTFILES += \
+    main.qml \
+    MainForm.qml \
+    RecipeFullItem.qml \
+    RecipesList.qml \
+    RecipeSmallItem.qml

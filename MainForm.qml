@@ -18,8 +18,8 @@ Item {
         delegate: Component {
             Loader {
                 id:delegateLoader
-                //source: "RecipeSmallItem.qml"
-                source: "RecipeFullItem.qml"
+                source: "RecipeSmallItem.qml"
+                //source: "RecipeFullItem.qml"
             }
         }
 

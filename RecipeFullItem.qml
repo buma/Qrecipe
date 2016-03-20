@@ -66,6 +66,7 @@ Item {
                 delegate:
                     Component {
                     Loader {
+                       // id: ingredientsLoader
                         source: "IngredientItem.qml"
                     }
                 }
