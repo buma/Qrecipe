@@ -47,7 +47,11 @@ QList<QObject *> SqlRecipeModel::getIngredients(int recipeId)
 void SqlRecipeModel::createConection()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/mabu/.gourmet/recipes_copy.db");
+    #ifdef Q_OS_QNX
+        db.setDatabaseName("db/recipes_copy.db");
+    #else
+        db.setDatabaseName("/home/mabu/.gourmet/recipes_copy.db");
+    #endif
     if (!db.open()) {
         qFatal("Cannot open database");
         return;
