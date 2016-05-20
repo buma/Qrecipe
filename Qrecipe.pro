@@ -19,6 +19,14 @@ lupdate_only {
     SOURCES = *.qml
 }
 
+linux-rasp-pi2-g++ {
+    message("Building for PI3")
+    DEFINES += "ON_PI3"
+}
+
+target.path = /home/pi/apps
+INSTALLS +=target
+
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
 

@@ -49,6 +49,8 @@ void SqlRecipeModel::createConection()
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     #ifdef Q_OS_QNX
         db.setDatabaseName("db/recipes_copy.db");
+    #elif ON_PI3
+        db.setDatabaseName("/home/pi/.config/recipes/recipes.db");
     #else
         db.setDatabaseName("/home/mabu/.gourmet/recipes_copy.db");
     #endif
