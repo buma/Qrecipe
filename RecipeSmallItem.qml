@@ -92,6 +92,7 @@ Item {
                 height:recipesListView.height
 
             }
+            //This enables clicking in RecipeFullModel
             PropertyChanges {
                 target: mouseArea1
                 enabled:false

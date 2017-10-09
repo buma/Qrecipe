@@ -34,6 +34,7 @@ Item {
             id: ingredientText
             text: modelData.ingredient
             wrapMode: Text.WordWrap
+
             font.pixelSize: 12
             Layout.fillWidth: true
         }

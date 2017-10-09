@@ -29,6 +29,7 @@ QList<QObject *> SqlRecipeModel::allRecipes()
 
 QList<QObject *> SqlRecipeModel::getIngredients(int recipeId)
 {
+    qDebug() << "Getting ingredients for recipe:" << recipeId << "\n";
     QSqlQuery query(queryIngredientsForRecipe.arg(recipeId));
     if (!query.exec()) {
         qFatal("Query for ingredients failed");
