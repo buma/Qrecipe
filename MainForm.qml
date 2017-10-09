@@ -14,7 +14,7 @@ Item {
         id: recipesListView
         anchors.fill: parent
         anchors.margins: 10
-        model:recipeModel.allRecipes()
+        model:recipeModel
         delegate: Component {
             Loader {
                 id:delegateLoader
@@ -30,9 +30,9 @@ Item {
         //mainForm.recipeClicked(title, instructions, notes)
     }
 
-    SqlRecipeModel {
+    /*SqlRecipeModel1 {
         id: recipeModel
-    }
+    }*/
 
 
 

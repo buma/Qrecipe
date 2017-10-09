@@ -6,7 +6,7 @@
 
 SqlRecipeModel::SqlRecipeModel()
 {
-    createConection();
+    //createConection();
 }
 
 QList<QObject *> SqlRecipeModel::allRecipes()
@@ -63,7 +63,8 @@ void SqlRecipeModel::createConection()
 
 const QString SqlRecipeModel::queryAllRecipes = QStringLiteral("SELECT * FROM recipe WHERE deleted == 0");
 const QString SqlRecipeModel::queryIngredientsForRecipe = QStringLiteral(
-            "SELECT * FROM ingredients WHERE recipe_id == '%1'"
+            "SELECT id, title, instructions, modifications, rating, yields, yield_unit"
+            " FROM ingredients WHERE recipe_id == '%1'"
             " AND deleted == 0"
             " ORDER BY position");
 

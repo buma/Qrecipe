@@ -32,15 +32,19 @@ Item {
 
 
         Text {
-            text: modelData.title
+            text: title
             anchors.verticalCenter: parent.verticalCenter
             font.bold: true
+        }
+
+        Text {
+            text:id
         }
 
         spacing: 10
         RatingIndicator {
             anchors.verticalCenter: parent.verticalCenter
-            indicator_rating: modelData.rating
+            indicator_rating: rating
         }
 
     }

@@ -7,7 +7,8 @@ QT += qml quick widgets sql
 SOURCES += main.cpp \
     recipe.cpp \
     sqlrecipemodel.cpp \
-    ingredient.cpp
+    ingredient.cpp \
+    sqlrecipemodel1.cpp
 
 RESOURCES += qml.qrc
 
@@ -36,7 +37,8 @@ include(deployment.pri)
 HEADERS += \
     recipe.hpp \
     sqlrecipemodel.hpp \
-    ingredient.hpp
+    ingredient.hpp \
+    sqlrecipemodel1.hpp
 
 DISTFILES += \
     main.qml \

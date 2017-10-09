@@ -12,5 +12,6 @@
         <file>img/no_star.png</file>
         <file>Star.qml</file>
         <file>RatingIndicator.qml</file>
+        <file>TestMain.qml</file>
     </qresource>
 </RCC>

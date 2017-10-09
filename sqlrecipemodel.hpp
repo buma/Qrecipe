@@ -17,11 +17,12 @@ public:
 
     Q_INVOKABLE QList<QObject*> allRecipes();
     Q_INVOKABLE QList<QObject*> getIngredients(int recipeId);
+    static const QString queryAllRecipes;
+    static const QString queryIngredientsForRecipe;
 
 private:
     static void createConection();
-    static const QString queryAllRecipes;
-    static const QString queryIngredientsForRecipe;
+
 };
 
 #endif // SQLRECIPEMODEL_HPP

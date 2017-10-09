@@ -40,12 +40,12 @@ ApplicationWindow {
         initialItem: MainForm {
             anchors.fill: parent
 
-            onRecipeClicked: {
+            /*onRecipeClicked: {
                 recipeFull.setRecipeData(title, "", instructions)
                 //recipeFull.ingredients = ingredients
                 console.log("main")
                 stackView.push(recipeFull)
-            }
+            }*/
         }
     }
 

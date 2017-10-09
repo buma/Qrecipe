@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import QtQuick.Extras 1.4
 import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.2
@@ -11,8 +11,9 @@ Item {
 
 
     Component.onCompleted:  {
-        //console.log("data:", recipeFullItem.ListView.view.model)
+        console.log("data:", recipeFullItem.ListView.view.model)
         //console.log(recipeModel.getIngredients(modelData.id))
+        console.log("COmpleted" + id + "title" + title)
     }
 
     SplitView {
@@ -24,6 +25,11 @@ Item {
             spacing: 10
             Layout.minimumWidth: 200
             Layout.minimumHeight: 20
+
+            Button {
+               text: "clickni"
+               onClicked: console.log("Clicked")
+           }
 
 
             Text {
@@ -48,8 +54,8 @@ Item {
 
                 SpinBox {
                     id: sb_amount
-                    value: modelData.yields
-                    suffix: modelData.yieldUnit
+                    value: yields
+                    suffix: yieldUnit
                 }
 
             }
@@ -57,9 +63,9 @@ Item {
             ListView {
                 id:ingrediendsListView
                 property real servings: sb_amount.value
-                property real recipeServings: modelData.yields
+                property real recipeServings: yields
                 //model:recipeFullItem.ListView.view.model.getIngredients(1)
-                model:recipeModel.getIngredients(modelData.id)
+                model:recipeModel.getIngredients(id)
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
