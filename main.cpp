@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<SqlRecipeModel>("si.mabu.recipe", 1, 0, "SqlRecipeModel");
 
+    SqlRecipeModel::createConection();
+
     /*
     qDebug() << "Path: " << QLibraryInfo::location(QLibraryInfo::TranslationsPath);
     qDebug() << "system Locale: " << QLocale::system();

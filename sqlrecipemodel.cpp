@@ -4,9 +4,10 @@
 #include <QSqlError>
 #include <QSqlQuery>
 
-SqlRecipeModel::SqlRecipeModel()
+SqlRecipeModel::SqlRecipeModel(QObject *parent) :
+    QSqlQueryModel(parent)
 {
-    createConection();
+    //createConection();
 }
 
 QList<QObject *> SqlRecipeModel::allRecipes()

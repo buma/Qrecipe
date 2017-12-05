@@ -13,13 +13,13 @@ class SqlRecipeModel : public QSqlQueryModel
 {
     Q_OBJECT
 public:
-    SqlRecipeModel();
+    SqlRecipeModel(QObject *parent = 0);
 
     Q_INVOKABLE QList<QObject*> allRecipes();
     Q_INVOKABLE QList<QObject*> getIngredients(int recipeId);
+    static void createConection();
 
 private:
-    static void createConection();
     static const QString queryAllRecipes;
     static const QString queryIngredientsForRecipe;
 };
