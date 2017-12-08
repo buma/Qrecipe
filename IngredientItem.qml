@@ -23,7 +23,7 @@ Item {
 
         Text{
             id: amountText
-            text: ingrediendsListView.servings===0? amount:amount * (ingrediendsListView.servings/ingrediendsListView.recipeServings)
+            text: ingrediendsListView.servings===0? amount:Math.round(amount * (ingrediendsListView.servings/ingrediendsListView.recipeServings)*100)/100
             visible: amount > 0
             font.pixelSize: 15
         }
