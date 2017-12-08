@@ -13,6 +13,8 @@ ApplicationWindow {
     Material.theme: Material.Dark
     Material.accent: Material.Blue
 
+    //TODO: add menubar
+
     /*header: MenuBar {
         Menu {
             title: qsTr("File")

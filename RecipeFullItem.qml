@@ -31,6 +31,7 @@ Item {
 
             Text {
                 id: text1
+                //TODO: center title
                 text: qsTr("Ingredients")
                 font.bold: true
                 Layout.alignment: Qt.AlignVCenter
@@ -67,7 +68,7 @@ Item {
 
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-
+                //TODO: ingredients can't overwrite instructions
                 delegate: IngredientItem {}
                 section {
                     property: "modelData.group"
@@ -124,7 +125,7 @@ Item {
                     Layout.alignment: Qt.AlignHCenter
                 }
             }
-
+            //TODO: add notes
             Text {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
