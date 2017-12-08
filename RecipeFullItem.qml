@@ -71,7 +71,7 @@ Item {
                 //TODO: ingredients can't overwrite instructions
                 delegate: IngredientItem {}
                 section {
-                    property: "modelData.group"
+                    property: "group"
                     criteria: ViewSection.FullString
                     delegate: Rectangle {
                                 //color: "#b0dfb0"
