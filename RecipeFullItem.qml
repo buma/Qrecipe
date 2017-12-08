@@ -53,7 +53,10 @@ Item {
                 SpinBox {
                     id: sb_amount
                     value: yields
-                    //suffix: yield_unit
+                }
+                Label {
+                    text:yield_unit
+                    visible:yield_unit
                 }
 
             }
