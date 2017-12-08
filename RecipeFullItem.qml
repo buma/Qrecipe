@@ -125,7 +125,6 @@ Item {
                     Layout.alignment: Qt.AlignHCenter
                 }
             }
-            //TODO: add notes
             Text {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
