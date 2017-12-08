@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.2
 Item {
     id:ingredientItem
     width:parent.width
-    height:20
+    height:40
 
     property bool checked: false
 
