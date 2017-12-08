@@ -7,6 +7,9 @@ Item {
     height:40
 
     property bool checked: false
+    property real amount_calc: ingrediendsListView.servings===0? amount:Math.round(amount * (ingrediendsListView.servings/ingrediendsListView.recipeServings)*100)/100
+
+
 
 
     Component.onCompleted:  {
@@ -20,27 +23,19 @@ Item {
 
     RowLayout {
         id: rowLayout1
+        width:parent.width
 
         Text{
             id: amountText
-            text: ingrediendsListView.servings===0? amount:Math.round(amount * (ingrediendsListView.servings/ingrediendsListView.recipeServings)*100)/100
-            visible: amount > 0
-            font.pixelSize: 15
-        }
-        
-        Text {
-            id:unitText
-            text:unit
-            visible:text.length > 0
-            font.pixelSize: 15
-        }
-        
-        Text {
-            id: ingredientText
-            text: ingredient
+            text: {
+                if (amount_calc > 0) {
+                    qsTr("%L1 %2 %3").arg(amount_calc).arg(unit).arg(ingredient)
+                }else {
+                    ingredient
+                }
+            }
+            font.pixelSize: 12
             wrapMode: Text.WordWrap
-            font.pixelSize: 15
-            Layout.fillWidth: true
         }
         MouseArea {
             id:mouseArea
@@ -63,18 +58,7 @@ Item {
                     color: "gray"
                     font.strikeout: true
                 }
-                
-                PropertyChanges {
-                    target: unitText
-                    color: "gray"
-                    font.strikeout: true
-                }
-                
-                PropertyChanges {
-                    target: ingredientText
-                    color: "gray"
-                    font.strikeout: true
-                }
+
             }
         ]
         transitions: Transition {
