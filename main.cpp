@@ -5,8 +5,8 @@
 #include <QLibraryInfo>
 #include <QDebug>
 
-#include "sqlrecipemodel.hpp"
 #include "sqlrecipemodel1.hpp"
+#include "sqlingredientmodel.hpp"
 
 void connectDB() {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
@@ -44,9 +44,9 @@ int main(int argc, char *argv[])
     connectDB();
 
     SqlRecipeModel1 sqlRecipeModel1;
-    sqlRecipeModel1.setQuery(SqlRecipeModel::queryAllRecipes);
 
-    qmlRegisterType<SqlRecipeModel>("si.mabu.recipe", 1, 0, "SqlRecipeModel1");
+    qmlRegisterType<SqlRecipeModel1>("si.mabu.recipe", 1, 0, "SqlRecipeModel1");
+    qmlRegisterType<SqlIngredientModel>("si.mabu.recipe", 1, 0, "SqlIngredientModel");
 
     /*
     qDebug() << "Path: " << QLibraryInfo::location(QLibraryInfo::TranslationsPath);

@@ -1,6 +1,4 @@
 #include "sqlrecipemodel1.hpp"
-#include "ingredient.hpp"
-#include "sqlrecipemodel.hpp"
 #include <QDebug>
 
 SqlRecipeModel1::SqlRecipeModel1(QObject *parent) : QSqlQueryModel(parent)
@@ -12,6 +10,16 @@ SqlRecipeModel1::SqlRecipeModel1(QObject *parent) : QSqlQueryModel(parent)
     roleNameHash.insert(Qt::UserRole + 4, QByteArray("rating"));;
     roleNameHash.insert(Qt::UserRole + 5, QByteArray("yields"));
     roleNameHash.insert(Qt::UserRole + 6, QByteArray("yield_unit"));
+
+    QSqlQuery query;
+    if (!query.exec(SqlRecipeModel1::queryAllrecipes))
+        qFatal("Contacts SELECT query failed: %s", qPrintable(query.lastError().text()));
+
+    //qDebug() << query.lastQuery();
+
+    setQuery(query);
+    if (lastError().isValid())
+        qFatal("Cannot set query on SqlContactModel: %s", qPrintable(lastError().text()));
 }
 
 QVariant SqlRecipeModel1::data(const QModelIndex& index, int role) const
@@ -24,28 +32,13 @@ QVariant SqlRecipeModel1::data(const QModelIndex& index, int role) const
     QVariant value= r.value(role - Qt::UserRole);
 
     if (role-Qt::UserRole == 4) {
-        return value.toUInt();
+        //qDebug() << "Rating" << value.toUInt();
+        return value.toFloat()/10*5;
     } else if (role-Qt::UserRole == 5) {
             return value.toFloat();
     } else {
         return value;
     }
 }
-
-QList<QObject *> SqlRecipeModel1::getIngredients(int recipeId)
-{
-    qDebug() << "Getting ingredients for recipe:" << recipeId << "\n";
-    QSqlQuery query(SqlRecipeModel::queryIngredientsForRecipe.arg(recipeId));
-    if (!query.exec()) {
-        qFatal("Query for ingredients failed");
-    }
-
-    QList<QObject*> ingredients;
-    while(query.next()) {
-        Ingredient *ingredient = new Ingredient(this, query.value("unit").toString(),
-                                                query.value("amount").toFloat(), query.value("item").toString(),
-                                                query.value("inggroup").toString());
-        ingredients.append(ingredient);
-    }
-    return ingredients;
-}
+//TODO: add conditional loading of everything else except title, id and rating
+const QString SqlRecipeModel1::queryAllrecipes = "SELECT id, title, instructions,modifications, rating, yields, yield_unit FROM recipe WHERE deleted == 0";

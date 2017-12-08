@@ -6,10 +6,13 @@ Item {
     width:parent.width
     height:20
 
+    property bool checked: false
+
+
     Component.onCompleted:  {
         //console.log("data:", modelData)
-        if (modelData.group != "") {
-            console.log(modelData.group, modelData.ingredient)
+        if (group != "") {
+            console.log(group, ingredient)
         }
         //console.log("servings", ingrediendsListView.servings)
         //console.log(ingrediendsListView.servings/ingrediendsListView.recipeServings)
@@ -20,19 +23,19 @@ Item {
 
         Text{
             id: amountText
-            text: ingrediendsListView.servings===0? modelData.amount:modelData.amount * (ingrediendsListView.servings/ingrediendsListView.recipeServings)
-            visible: modelData.amount > 0
+            text: ingrediendsListView.servings===0? amount:amount * (ingrediendsListView.servings/ingrediendsListView.recipeServings)
+            visible: amount > 0
         }
         
         Text {
             id:unitText
-            text:modelData.unit
+            text:unit
             visible:text.length > 0
         }
         
         Text {
             id: ingredientText
-            text: modelData.ingredient
+            text: ingredient
             wrapMode: Text.WordWrap
             font.pixelSize: 12
             Layout.fillWidth: true
@@ -41,8 +44,9 @@ Item {
             id:mouseArea
             anchors.fill: parent
             onClicked: {
-                console.log(modelData)
-                modelData.checked = !modelData.checked
+                //console.log(modelData)
+                checked = !checked
+
 
             }
         }
@@ -50,7 +54,7 @@ Item {
         states: [
             State {
                 name: "checked"
-                when: modelData.checked === true
+                when: checked === true
                 
                 PropertyChanges {
                     target: amountText

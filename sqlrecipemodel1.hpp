@@ -9,9 +9,9 @@ class SqlRecipeModel1 : public QSqlQueryModel
 {
 public:
     SqlRecipeModel1(QObject* parent = 0);
-    Q_INVOKABLE QList<QObject*> getIngredients(int recipeId);
     QVariant data(const QModelIndex& index, int role) const;
     QHash<int, QByteArray> roleNames() const { return roleNameHash; }
+    static const QString queryAllrecipes;
 private:
     QHash<int, QByteArray> roleNameHash;
 };

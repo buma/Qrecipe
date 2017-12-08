@@ -9,11 +9,14 @@ Item {
     width: 1024
     height: 600
 
+    property int recipeId
+
 
     Component.onCompleted:  {
-        console.log("data:", recipeFullItem.ListView.view.model)
+
+        //console.log("data:", recipeFullItem.ListView.view.model)
         //console.log(recipeModel.getIngredients(modelData.id))
-        console.log("COmpleted" + id + "title" + title)
+        //console.log("COmpleted" + model.id + "title" + model.title)
     }
 
     SplitView {
@@ -55,7 +58,7 @@ Item {
                 SpinBox {
                     id: sb_amount
                     value: yields
-                    suffix: yieldUnit
+                    suffix: yield_unit
                 }
 
             }
@@ -64,18 +67,14 @@ Item {
                 id:ingrediendsListView
                 property real servings: sb_amount.value
                 property real recipeServings: yields
-                //model:recipeFullItem.ListView.view.model.getIngredients(1)
-                model:recipeModel.getIngredients(id)
+                model:SqlIngredientModel {
+                    recipeId: model.id
+                }
+
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                delegate:
-                    Component {
-                    Loader {
-                       // id: ingredientsLoader
-                        source: "IngredientItem.qml"
-                    }
-                }
+                delegate: IngredientItem {}
                 section {
                     property: "modelData.group"
                     criteria: ViewSection.FullString
@@ -119,7 +118,7 @@ Item {
 
                 Text {
                     id: titleText
-                    text: modelData.title
+                    text: model.title
 
                     font.family: "Verdana"
                     style: Text.Raised
@@ -136,7 +135,7 @@ Item {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 id: instructions
-                text:modelData.instructions
+                text:model.instructions
                 wrapMode: Text.WordWrap
 
                 font.pixelSize: 12

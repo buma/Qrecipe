@@ -15,13 +15,7 @@ Item {
         anchors.fill: parent
         anchors.margins: 10
         model:recipeModel
-        delegate: Component {
-            Loader {
-                id:delegateLoader
-                source: "RecipeSmallItem.qml"
-                //source: "RecipeFullItem.qml"
-            }
-        }
+        delegate: RecipeSmallItem {}
 
         spacing: 10
     }

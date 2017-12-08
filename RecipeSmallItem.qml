@@ -6,9 +6,10 @@ Item {
     id:smallRecipe
     width:recipesListView.width
     height:40
-    anchors.horizontalCenter: parent.horizontalCenter
+    //anchors.horizontalCenter: parent.horizontalCenter
 
     signal recipeClicked(string title, string instructions, string notes)
+
 
     Loader {
         id:loader
@@ -35,10 +36,6 @@ Item {
             text: title
             anchors.verticalCenter: parent.verticalCenter
             font.bold: true
-        }
-
-        Text {
-            text:id
         }
 
         spacing: 10
