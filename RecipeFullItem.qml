@@ -1,7 +1,6 @@
 import QtQuick 2.5
-import QtQuick.Extras 1.4
-import QtQuick.Controls 1.3
-import QtQuick.Layouts 1.2
+import QtQuick.Controls 2.1
+import QtQuick.Layouts 1.3
 import si.mabu.recipe 1.0
 
 Item {
@@ -19,7 +18,7 @@ Item {
         //console.log("COmpleted" + model.id + "title" + model.title)
     }
 
-    SplitView {
+    RowLayout {
         id: splitView1
         anchors.fill: parent
 
@@ -28,11 +27,6 @@ Item {
             spacing: 10
             Layout.minimumWidth: 200
             Layout.minimumHeight: 20
-
-            Button {
-               text: "clickni"
-               onClicked: console.log("Clicked")
-           }
 
 
             Text {
@@ -58,7 +52,7 @@ Item {
                 SpinBox {
                     id: sb_amount
                     value: yields
-                    suffix: yield_unit
+                    //suffix: yield_unit
                 }
 
             }

@@ -25,19 +25,21 @@ Item {
             id: amountText
             text: ingrediendsListView.servings===0? amount:amount * (ingrediendsListView.servings/ingrediendsListView.recipeServings)
             visible: amount > 0
+            font.pixelSize: 15
         }
         
         Text {
             id:unitText
             text:unit
             visible:text.length > 0
+            font.pixelSize: 15
         }
         
         Text {
             id: ingredientText
             text: ingredient
             wrapMode: Text.WordWrap
-            font.pixelSize: 12
+            font.pixelSize: 15
             Layout.fillWidth: true
         }
         MouseArea {

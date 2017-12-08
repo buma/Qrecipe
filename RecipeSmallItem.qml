@@ -1,5 +1,5 @@
 import QtQuick 2.5
-
+import QtQuick.Controls 2.1
 
 
 Item {
@@ -59,7 +59,7 @@ Item {
             smallRecipe.recipeClicked(modelData.title, modelData.instructions, modelData.notes)
         }*/
     }
-    Rectangle {
+    Button {
                    id: closeButton
 
                    anchors.right: parent.right
@@ -67,18 +67,16 @@ Item {
                    anchors.rightMargin: 2
                    anchors.topMargin: 2
 
-                   width: 26
-                   height: 26
 
-                   color: "#157efb"
-                   border.color: Qt.lighter(color, 1.1)
+                   text: qsTr("Close")
+
+                   //color: "#157efb"
+                   //border.color: Qt.lighter(color, 1.1)
 
                    opacity: 0
+                   onClicked: smallRecipe.state = ""
 
-                   MouseArea {
-                       anchors.fill: parent
-                       onClicked: smallRecipe.state = ""
-                   }
+
                }
     states: [
         State {

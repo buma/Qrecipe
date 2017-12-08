@@ -1,6 +1,8 @@
 import QtQuick 2.5
-import QtQuick.Controls 1.4
+import QtQuick.Controls 2.1
 import QtQuick.Dialogs 1.2
+
+import QtQuick.Controls.Material 2.1
 
 ApplicationWindow {
     visible: true
@@ -8,7 +10,10 @@ ApplicationWindow {
     height: 600
     title: qsTr("Hello World")
 
-    menuBar: MenuBar {
+    Material.theme: Material.Dark
+    Material.accent: Material.Blue
+
+    /*header: MenuBar {
         Menu {
             title: qsTr("File")
             MenuItem {
@@ -26,7 +31,7 @@ ApplicationWindow {
                              }
             }
         }
-    }
+    }*/
 
     StackView {
         id: stackView
