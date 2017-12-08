@@ -16,6 +16,7 @@ class Recipe : public QObject
     Q_PROPERTY(float yields READ yields NOTIFY yieldsChanged)
     Q_PROPERTY(QString yieldUnit READ yieldUnit NOTIFY yieldUnitChanged)
 public:
+    explicit Recipe(QObject * parent=0);
     explicit Recipe(QObject *parent, QString title, QString instructions, QString notes, quint8 rating, quint16 id, float yields, QString yieldUnit);
 
     QString notes() const

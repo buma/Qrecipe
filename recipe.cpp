@@ -1,6 +1,11 @@
 #include <QtGlobal>
 #include "recipe.hpp"
 
+Recipe::Recipe(QObject *parent) :
+    QObject (parent) {
+
+}
+
 Recipe::Recipe(QObject *parent, QString title, QString instructions, QString notes,
                quint8 rating, quint16 id, float yields, QString yieldUnit) : QObject(parent)
 {
