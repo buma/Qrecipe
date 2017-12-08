@@ -24,6 +24,15 @@ ApplicationWindow {
                 onClicked: Qt.quit();
             }
 
+            //TODO: this button should close recipe view
+            ToolButton {
+                id:exitButton
+                anchors.right: parent.right
+                text: qsTr("Back")
+                visible: false
+                onClicked: smallRecipe.state = ""
+            }
+
         }
     }
 
