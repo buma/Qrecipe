@@ -1,6 +1,7 @@
 import QtQuick 2.5
 import QtQuick.Controls 2.1
 import QtQuick.Dialogs 1.2
+import QtQuick.Layouts 1.1
 
 import QtQuick.Controls.Material 2.1
 
@@ -14,6 +15,17 @@ ApplicationWindow {
     Material.accent: Material.Blue
 
     //TODO: add menubar
+
+    header:ToolBar {
+        RowLayout {
+            anchors.fill: parent
+            ToolButton {
+                text: qsTr("Exit")
+                onClicked: Qt.quit();
+            }
+
+        }
+    }
 
     /*header: MenuBar {
         Menu {
