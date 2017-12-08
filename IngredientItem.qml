@@ -11,9 +11,9 @@ Item {
 
     Component.onCompleted:  {
         //console.log("data:", modelData)
-        if (group != "") {
+        /*if (group != "") {
             console.log(group, ingredient)
-        }
+        }*/
         //console.log("servings", ingrediendsListView.servings)
         //console.log(ingrediendsListView.servings/ingrediendsListView.recipeServings)
     }
