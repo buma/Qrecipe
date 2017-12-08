@@ -24,6 +24,11 @@
         <source>Yields:</source>
         <translation>Za:</translation>
     </message>
+    <message>
+        <location filename="../RecipeFullItem.qml" line="140"/>
+        <source>Notes</source>
+        <translation>Nasveti</translation>
+    </message>
 </context>
 <context>
     <name>RecipeSmallItem</name>
@@ -36,7 +41,7 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.qml" line="11"/>
+        <location filename="../main.qml" line="12"/>
         <source>Hello World</source>
         <translation>Pozdravljen Svet</translation>
     </message>
@@ -49,12 +54,14 @@
         <translation type="vanished">&amp;Odpri</translation>
     </message>
     <message>
+        <location filename="../main.qml" line="23"/>
         <source>Exit</source>
-        <translation type="vanished">Izhod</translation>
+        <translation>Izhod</translation>
     </message>
     <message>
+        <location filename="../main.qml" line="31"/>
         <source>Back</source>
-        <translation type="vanished">Nazaj</translation>
+        <translation>Nazaj</translation>
     </message>
     <message>
         <source>Button 1 pressed</source>
@@ -65,7 +72,7 @@
         <translation type="vanished">Gumb 2 je bil pritisnjen</translation>
     </message>
     <message>
-        <location filename="../main.qml" line="62"/>
+        <location filename="../main.qml" line="83"/>
         <source>May I have your attention, please?</source>
         <translation>Ali imam lahko vašo pozornost?</translation>
     </message>
