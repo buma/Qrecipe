@@ -135,6 +135,30 @@ Item {
 
                 font.pixelSize: 12
             }
+            Text {
+                id: notesTitle
+                text: qsTr("Notes")
+
+                font.family: "Verdana"
+                style: Text.Raised
+                font.bold: true
+
+                font.pixelSize: 14
+                Layout.minimumHeight: 20
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter
+                visible: model.modifications
+            }
+            Text {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                id: notes
+                text:model.modifications
+                wrapMode: Text.WordWrap
+
+                font.pixelSize: 12
+                visible: model.modifications
+            }
         }
     }
 
