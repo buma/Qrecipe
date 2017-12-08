@@ -24,6 +24,11 @@ linux-rasp-pi2-g++ {
     DEFINES += "ON_PI3"
 }
 
+linux-rasp-pi3-g++ {
+    message("Building for PI3")
+    DEFINES += "ON_PI3"
+}
+
 target.path = /home/pi/apps
 INSTALLS +=target
 
