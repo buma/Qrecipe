@@ -25,7 +25,7 @@ Item {
         ColumnLayout {
             id: ingredients_column
             spacing: 10
-            Layout.minimumWidth: 200
+            Layout.minimumWidth: 400
             Layout.minimumHeight: 20
 
 
@@ -36,7 +36,7 @@ Item {
                 font.bold: true
                 Layout.alignment: Qt.AlignVCenter
                 Layout.fillWidth: true
-                font.pixelSize: 12
+                font.pixelSize: 16
             }
 
             RowLayout {
