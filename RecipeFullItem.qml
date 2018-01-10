@@ -31,10 +31,10 @@ Item {
 
             Text {
                 id: text1
-                //TODO: center title
                 text: qsTr("Ingredients")
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
                 font.bold: true
-                Layout.alignment: Qt.AlignVCenter
                 Layout.fillWidth: true
                 font.pixelSize: 16
             }
@@ -116,6 +116,8 @@ Item {
                 Text {
                     id: titleText
                     text: model.title
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
 
                     font.family: "Verdana"
                     style: Text.Raised
@@ -139,6 +141,8 @@ Item {
             Text {
                 id: notesTitle
                 text: qsTr("Notes")
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
 
                 font.family: "Verdana"
                 style: Text.Raised
