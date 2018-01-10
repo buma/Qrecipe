@@ -13,5 +13,6 @@
         <file>Star.qml</file>
         <file>RatingIndicator.qml</file>
         <file>TestMain.qml</file>
+        <file>qtquickcontrols2.conf</file>
     </qresource>
 </RCC>

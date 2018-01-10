@@ -49,7 +49,8 @@ DISTFILES += \
     RecipeFullItem.qml \
     RecipesList.qml \
     RecipeSmallItem.qml \
-    bar-descriptor.xml
+    bar-descriptor.xml \
+    qtquickcontrols2.conf
 
 qnx {
     QMAKE_LFLAGS += '-Wl,-rpath,\'./app/native/lib\''

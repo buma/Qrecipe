@@ -3,16 +3,11 @@ import QtQuick.Controls 2.1
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
 
-import QtQuick.Controls.Material 2.1
-
 ApplicationWindow {
     visible: true
     width: 1024
     height: 600
     title: qsTr("Hello World")
-
-    Material.theme: Material.Dark
-    Material.accent: Material.Blue
 
     //TODO: add menubar
 
