@@ -81,7 +81,7 @@ Item {
                                 width: parent.width
                                 height: childrenRect.height + 4
                                 Text { anchors.horizontalCenter: parent.horizontalCenter
-                                    font.pixelSize: 16
+                                    font.pixelSize: 18
                                     font.bold: true
                                     text: section
                                 }

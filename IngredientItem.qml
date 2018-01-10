@@ -34,7 +34,7 @@ Item {
                     ingredient
                 }
             }
-            font.pixelSize: 12
+            font.pixelSize: 16
             wrapMode: Text.WordWrap
         }
         MouseArea {
