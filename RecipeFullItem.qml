@@ -71,7 +71,6 @@ Item {
 
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                //TODO: ingredients can't overwrite instructions
                 delegate: IngredientItem {}
                 section {
                     property: "group"

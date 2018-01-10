@@ -21,9 +21,6 @@ Item {
         //console.log(ingrediendsListView.servings/ingrediendsListView.recipeServings)
     }
 
-    RowLayout {
-        id: rowLayout1
-        width:parent.width
 
         Text{
             id: amountText
@@ -34,8 +31,10 @@ Item {
                     ingredient
                 }
             }
+            //text: "Something very very long that is too much to be shown in that small space. I wonder what will happen"
             font.pixelSize: 16
             wrapMode: Text.WordWrap
+            anchors.fill: parent
         }
         MouseArea {
             id:mouseArea
@@ -71,5 +70,5 @@ Item {
             }
             
         }
-    }
+
 }
