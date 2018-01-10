@@ -1,5 +1,5 @@
 import QtQuick 2.5
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 import si.mabu.recipe 1.0
 
@@ -154,15 +154,27 @@ Item {
                 Layout.alignment: Qt.AlignHCenter
                 visible: model.modifications
             }
-            Text {
-                Layout.fillHeight: true
+            ScrollView {
+                id:notesSv
+                rightPadding: 5
+                contentWidth: parent.width
+                Layout.preferredHeight: 100
+                visible: model.modifications
+                Layout.fillHeight: false
                 Layout.fillWidth: true
+                Layout.maximumHeight: 400
+                clip:true
+                Text {
+
                 id: notes
                 text:model.modifications
+                width:row1.width
+
                 wrapMode: Text.WordWrap
 
                 font.pixelSize: 12
                 visible: model.modifications
+            }
             }
         }
     }
