@@ -10,6 +10,7 @@ SqlRecipeModel1::SqlRecipeModel1(QObject *parent) : QSqlQueryModel(parent)
     roleNameHash.insert(Qt::UserRole + 4, QByteArray("rating"));;
     roleNameHash.insert(Qt::UserRole + 5, QByteArray("yields"));
     roleNameHash.insert(Qt::UserRole + 6, QByteArray("yield_unit"));
+    roleNameHash.insert(Qt::UserRole + 7, QByteArray("thumb"));
 
     QSqlQuery query;
     if (!query.exec(SqlRecipeModel1::queryAllrecipes))
@@ -36,6 +37,10 @@ QVariant SqlRecipeModel1::data(const QModelIndex& index, int role) const
         return value.toFloat()/10*5;
     } else if (role-Qt::UserRole == 5) {
             return value.toFloat();
+    } else if (role-Qt::UserRole==7) {
+        auto id = r.value(0);
+        //qDebug() << "ID:" << r.value("id");
+        return QVariant(QString("image://db/%1/thumb").arg(id.toLongLong()));
     } else {
         return value;
     }

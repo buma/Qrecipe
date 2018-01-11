@@ -7,7 +7,8 @@ QT += qml quick widgets sql
 SOURCES += main.cpp \
     recipe.cpp \
     sqlrecipemodel1.cpp \
-    sqlingredientmodel.cpp
+    sqlingredientmodel.cpp \
+    dbimageprovider.cpp
 
 RESOURCES += qml.qrc
 
@@ -41,7 +42,8 @@ include(deployment.pri)
 HEADERS += \
     recipe.hpp \
     sqlrecipemodel1.hpp \
-    sqlingredientmodel.hpp
+    sqlingredientmodel.hpp \
+    dbimageprovider.hpp
 
 DISTFILES += \
     main.qml \

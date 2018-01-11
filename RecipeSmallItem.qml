@@ -25,10 +25,12 @@ Item {
         width: recipesListView.width
         height: 40
         visible: !loader.visible
-        Rectangle {
+        Image {
+            id:icon
             width: 40
             height: 40
-            color: "#791313"
+            fillMode: Image.PreserveAspectFit
+            source: thumb
         }
 
 

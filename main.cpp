@@ -7,6 +7,7 @@
 
 #include "sqlrecipemodel1.hpp"
 #include "sqlingredientmodel.hpp"
+#include "dbimageprovider.hpp"
 
 void connectDB() {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
@@ -55,6 +56,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
+    engine.addImageProvider(QLatin1String("db"), new DBImageProvider);
 
     QQmlContext *context = engine.rootContext();
     context->setContextProperty("recipeModel", &sqlRecipeModel1);
