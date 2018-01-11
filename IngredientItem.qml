@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.2
 Item {
     id:ingredientItem
     width:parent.width
-    height:40
+    height:Math.max(16, amountText.paintedHeight)
 
     property bool checked: false
     property real amount_calc: ingrediendsListView.servings===0? amount:Math.round(amount * (ingrediendsListView.servings/ingrediendsListView.recipeServings)*100)/100

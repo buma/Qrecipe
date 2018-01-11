@@ -65,6 +65,7 @@ Item {
                 id:ingrediendsListView
                 property real servings: sb_amount.value
                 property real recipeServings: yields
+                spacing: 5
                 model:SqlIngredientModel {
                     recipeId: model.id
                 }
