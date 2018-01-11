@@ -109,6 +109,7 @@ Item {
                     id: image1
                     width: height
                     clip: false
+                    source: thumb // "image://db/" + id + "/image"
                     Layout.maximumWidth: 100
                     Layout.maximumHeight: 100
 
@@ -126,7 +127,7 @@ Item {
 
                     font.pixelSize: 20
                     Layout.minimumHeight: 20
-                    Layout.fillWidth: true
+                    Layout.fillWidth: false
                     Layout.alignment: Qt.AlignHCenter
                 }
             }
