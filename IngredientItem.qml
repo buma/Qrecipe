@@ -32,7 +32,7 @@ Item {
                 }
             }
             //text: "Something very very long that is too much to be shown in that small space. I wonder what will happen"
-            font.pixelSize: 16
+            font.pointSize: 16
             wrapMode: Text.WordWrap
             anchors.fill: parent
         }
