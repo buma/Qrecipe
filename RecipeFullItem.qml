@@ -136,9 +136,9 @@ Item {
                 Layout.fillWidth: true
                 id: instructions
                 text:model.instructions
+                font.pointSize: 13
                 wrapMode: Text.WordWrap
 
-                font.pixelSize: 12
             }
             Text {
                 id: notesTitle
@@ -170,11 +170,11 @@ Item {
 
                 id: notes
                 text:model.modifications
+                font.pointSize: 13
                 width:row1.width
 
                 wrapMode: Text.WordWrap
 
-                font.pixelSize: 12
                 visible: model.modifications
             }
             }
