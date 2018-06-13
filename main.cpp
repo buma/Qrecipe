@@ -27,6 +27,9 @@ void connectDB() {
 int main(int argc, char *argv[])
 {
     //qputenv("QT_DEBUG_PLUGINS", QByteArray("1"));
+//#ifdef ON_PI3
+    qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
+//#endif
     QApplication app(argc, argv);
 
     QTranslator qtTranslator;

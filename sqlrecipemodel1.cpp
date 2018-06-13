@@ -45,5 +45,17 @@ QVariant SqlRecipeModel1::data(const QModelIndex& index, int role) const
         return value;
     }
 }
+
+Q_INVOKABLE void SqlRecipeModel1::search(QString search) {
+    const QString querySearch = "SELECT id, title, instructions,modifications, rating, yields, yield_unit FROM recipe WHERE deleted == 0 AND (title LIKE \"%"+search+"%\" OR description LIKE \"%"+search+"%\")";
+    QSqlQuery query;
+    if (!query.exec(querySearch))
+        qFatal("Search SELECT query failed: %s", qPrintable(query.lastError().text()));
+
+    //qDebug() << query.lastQuery();
+
+    setQuery(query);
+
+}
 //TODO: add conditional loading of everything else except title, id and rating
 const QString SqlRecipeModel1::queryAllrecipes = "SELECT id, title, instructions,modifications, rating, yields, yield_unit FROM recipe WHERE deleted == 0";
